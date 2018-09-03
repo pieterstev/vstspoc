@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "virtualMachineName": {
+            "value": "TDG-VM-MNG1-U"
+        },
+
+      "virtualMachineSize": {
+        "value": "Standard_D2s_v3"
+      },
+      
+        "environment": {
+            "value": "ACC"
+        },
+        "nmsc": {
+            "value": "TDG"
+        },
+        "adminUsername": {
+            "value": "AzureAdmin"
+        },
+        "virtualNetworkName": {
+          "value": "TDG-VNET-ACC"
+        },
+        "rgNameVM": {
+          "value": "TDG-RG-IaaS-Mng-ACC"
+        },
+        "rgNameNetwork": {
+          "value": "TDG-RG-Network-ACC"
+        },
+        "subnetName": {
+            "value": "TDG-Subnet-Mng-ACC"
+        },
+        "networkInterfaceName": {
+            "value": "TDG-NIC-MNG1-U-01"
+        },
+        "privateIpAddress": {
+            "value": "10.105.141.4"
+        },
+        "osDiskName": {
+            "value": "TDG-DISK-MNG1-U-01"
+        },
+        "adminPassword": {
+            "value": "ToshikoAdmin.123"
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "corergiaasserversacc455"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/corergiaasserversacc455"
+        }
+        
+    }
+}
