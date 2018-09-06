@@ -5,12 +5,16 @@
         "templateBaseURL":{
             "type": "string",
             "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/armartifacts/template-TDG-VM-MNG1-U.json",
-            "contentversion": "1.0.0.0"
+           
         },
         "parameterBaseURL":{
             "type": "string",
             "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/armartifacts/parameters-TDG-VM-MNG1-U.json",
-            "contentversion": "1.0.0.0"
+           
+        },
+        "SASToken":{
+            "type": "string"
+           
         }
 
     },
@@ -23,10 +27,10 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                  "uri": "[parameters('templateBaseURL')]"  
+                  "uri": "[concat(parameters('templateBaseURL'),parameters('SASToken'))]"  
                 },
                 "parametersLink":{
-                    "uri": "[parameters('parameterBaseURL')]"
+                    "uri": "[concat(parameters('parameterBaseURL'),parameters('SASToken'))]"
                 }
 
             }
