@@ -114,7 +114,7 @@
             },
             "osDisk": {
               "name": "[parameters('osDiskName')]",
-              "createOption": "fromImage",
+              "createOption": "FromImage",
               "managedDisk": {
                 "storageAccountType": "Premium_LRS"
               }
@@ -406,7 +406,7 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-                            "privateIPAllocationMethod": "static",
+                            "privateIPAllocationMethod": "Static",
                             "privateIPAddress": "[parameters('privateIPAddress')]"
                         }
                     }

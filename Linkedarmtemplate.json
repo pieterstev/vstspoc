@@ -1,8 +1,43 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "templateBaseURL":{
+            "type": "string",
+            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/armartifacts/template-TDG-VM-MNG1-U.json",
+            "contentversion": "1.0.0.0"
+        },
+        "parameterBaseURL":{
+            "type": "string",
+            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/armartifacts/parameters-TDG-VM-MNG1-U.json",
+            "contentversion": "1.0.0.0"
+        }
+
+    },
     "variables": {},
-    "resources": [],
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name":"linkedtemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties":{
+                "mode":"Incremental",
+                "templateLink":{
+                  "uri": "[parameters('templateBaseURL')]"  
+                },
+                "parametersLink":{
+                    "uri": "[parameters('parameterBaseURL')]"
+                }
+
+            }
+
+
+
+        }
+
+
+
+
+    ],
     "outputs": {}
 }
