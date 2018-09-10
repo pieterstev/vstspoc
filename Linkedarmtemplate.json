@@ -28,10 +28,10 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                  "uri": "[concat(parameters('templateBaseURL'),parameters('SASToken'))]"  
+                  "uri": "[parameters('templateBaseURL')]"  
                 },
                 "parametersLink":{
-                    "uri": "[concat(parameters('parameterBaseURL'),parameters('SASToken'))]"
+                    "uri": "[parameters('parameterBaseURL')]"
                 }
 
             }
