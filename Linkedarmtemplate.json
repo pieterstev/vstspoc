@@ -11,8 +11,11 @@
             "type": "string",
             "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/armartifacts/parameters-TDG-VM-MNG1-U.json"
            
+        },
+        "SASToken":{
+            "type": "string"
+           
         }
-        
 
     },
     "variables": {},
@@ -25,10 +28,10 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                  "uri": "[parameters('templateBaseURL')]"  
+                  "uri": "[concat(parameters('templateBaseURL'),parameters('SASToken'))]"  
                 },
                 "parametersLink":{
-                    "uri": "[parameters('parameterBaseURL')]"
+                    "uri": "[concat(parameters('parameterBaseURL'),parameters('SASToken'))]"
                 }
 
             }
