@@ -11,7 +11,7 @@
             "type": "string",
             "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/armartifacts/parameters-TDG-VM-MNG1-U.json"
            
-        },
+        }
         
 
     },
