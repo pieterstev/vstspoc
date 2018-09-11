@@ -13,7 +13,8 @@
            
         },
         "SASToken":{
-            "type": "string"
+            "type": "string",
+            "defaultValue": "?sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-10-10T21:00:58Z&st=2018-09-10T13:00:58Z&spr=https&sig=mknEG%2F2AVB%2B9zwQ8%2Bk4Dz0KCNntDsJ%2BIYzxDKL8iRAc%3D"
            
         }
 
