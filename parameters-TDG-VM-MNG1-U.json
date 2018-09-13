@@ -53,7 +53,7 @@
             "value": "Standard_LRS"
         },
         "diagnosticsStorageAccountId": {
-            "value": "Microsoft.Storage/storageAccounts/corergiaasserversacc455"
+            "value": "Microsoft.Storage/storageAccounts/corergiaasserversacc458"
         }
         
     }

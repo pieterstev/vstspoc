@@ -1,0 +1,117 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "westeurope"
+    },
+    "virtualNetworkName1": {
+      "value": "TDG-VNET-ACC"
+    },
+    "AddressPrefix1": {
+      "value": "10.105.141.0/24"
+    },
+    "SubnetName1": {
+      "value": "TDG-Subnet-Web-ACC"
+    },
+    "SubnetPrefix1": {
+      "value": "10.105.141.16/28"
+    },
+    "SubnetName2": {
+      "value": "TDG-Subnet-Data-ACC"
+    },
+    "SubnetPrefix2": {
+      "value": "10.105.141.32/27"
+    },
+    "SubnetName3": {
+      "value": "TDG-Subnet-Service-ACC"
+    },
+    "SubnetPrefix3": {
+      "value": "10.105.141.64/28"
+    },
+    "SubnetName4": {
+      "value": "TDG-Subnet-Mng-ACC"
+    },
+    "SubnetPrefix4": {
+      "value": "10.105.141.0/28"
+    },
+    "environment": {
+      "value": "ACC"
+    },
+    "nmsc": {
+      "value": "TDG"
+    },
+    "dnsServers": {
+      "value": ["10.105.136.4", "10.105.136.5" ]
+    },
+    "peeringname1": {
+      "value": "TDG-PR-ACC-TO-INFRA"
+    },
+    "peeringname2": {
+      "value": "TDG-PR-ACC-TO-AUTH"
+    },
+    "peeringname3": {
+      "value": "TDG-PR-ACC-TO-HUBACC"
+    },
+     "peeringname4": {
+      "value": "TDG-PR-ACC-TO-TMENETHUB"
+    },
+    "allowvirtualNetworkAccessTrue": {
+      "value": true
+    },
+    
+    "allowvirtualNetworkAccessFalse": {
+      "value": false
+    },
+
+    "allowForwardedTrafficTrue": {
+      "value": true
+    },
+
+    "allowForwardedTrafficFalse": {
+      "value": false
+    },
+
+    "allowGatewayTransitTrue": {
+      "value": true
+    },
+
+    "allowGatewayTransitFalse": {
+      "value": false
+    },
+
+    "useRemoteGatewaysTrue": {
+      "value": true
+    },
+
+    "useRemoteGatewaysFalse": {
+      "value": false
+    },
+    "remoteVirtualNetworkId1": {
+      "value": "/subscriptions/942cc398-acbf-4204-9000-283cc816614a/resourceGroups/CORE-RG-Network-INFRA/providers/Microsoft.Network/virtualNetworks/CORE-VNET-INFRA"
+    },
+    "remoteVirtualNetworkId2": {
+      "value": "/subscriptions/1e70e458-df73-4730-a005-841b51941a14/resourceGroups/CORE-RG-Network-AUTH/providers/Microsoft.Network/virtualNetworks/CORE-VNET-AUTH"
+    },
+    "remoteVirtualNetworkId3": {
+      "value": "/subscriptions/742b6296-97e8-47fa-bcc1-241d32106844/resourceGroups/CORE-RG-Network-ACC/providers/Microsoft.Network/virtualNetworks/CORE-VNET-Nethub-ACC"
+    },
+    "remoteVirtualNetworkId4": {
+      "value": "/subscriptions/73cffe8a-adb2-4c0c-8f94-fa9b685886ce/resourceGroups/TME-Nethub/providers/Microsoft.Network/virtualNetworks/Nethub_PROD_VNET"
+    },
+    "remoteVirtualnetworkAddressPrefix1": {
+      "value": "10.105.136.0/26"
+    },
+    "remoteVirtualnetworkAddressPrefix2": {
+      "value": "10.105.136.64/26"
+    },
+     "remoteVirtualnetworkAddressPrefix3": {
+      "value": "10.105.130.0/24"
+    },
+    "remoteVirtualnetworkAddressPrefix4": {
+      "value": "10.105.143.0/24"
+    }
+
+
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+
+    "location": {
+      "type": "string"
+    },
+
+    "VirtualNetworkName1": {
+      "type": "string",
+      "metadata": {
+        "description": "name of main virtual network"
+      }
+    },
+
+    "AddressPrefix1": {
+      "type": "string",
+      "metadata": {
+        "description": "address range of main virtual network"
+      }
+    },
+
+    "SubnetName1": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of first subnet of main virtual network"
+      }
+    },
+
+    "SubnetPrefix1": {
+      "type": "string",
+      "metadata": {
+        "description": "address prefix of first subnet of main virtual network"
+      }
+    },
+
+    "SubnetName2": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of second subnet of main virtual network"
+      }
+    },
+
+    "SubnetPrefix2": {
+      "type": "string",
+      "metadata": {
+        "description": "address prefix of second subnet of main virtual network"
+      }
+    },
+
+    "SubnetName3": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of third subnet of main virtual network"
+      }
+    },
+
+    "SubnetPrefix3": {
+      "type": "string",
+      "metadata": {
+        "description": "address prefix of third subnet of main virtual network"
+      }
+    },
+
+    "SubnetName4": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of fourth subnet of main virtual network"
+      }
+    },
+    "SubnetPrefix4": {
+      "type": "string",
+      "metadata": {
+        "description": "address prefix of fourth subnet of main virtual network"
+      }
+    },
+    "peeringname1": {
+      "type": "string"
+    },
+    "peeringname2": {
+      "type": "string"
+    },
+    "peeringname3": {
+      "type": "string"
+    },
+    "peeringname4": {
+      "type": "string"
+    },
+    "dnsServers": {
+      "type": "array"
+    },
+    "allowvirtualNetworkAccessTrue": {
+      "type": "bool"
+    },
+    "allowvirtualNetworkAccessFalse": {
+      "type": "bool"
+    },
+    "allowForwardedTrafficTrue": {
+      "type": "bool"
+    },
+    "allowForwardedTrafficFalse": {
+      "type": "bool"
+    },
+    "allowGatewayTransitTrue": {
+      "type": "bool"
+    },
+    "allowGatewayTransitFalse": {
+      "type": "bool"
+    },
+    "useRemoteGatewaysTrue": {
+      "type": "bool"
+    },
+    "useRemoteGatewaysFalse": {
+      "type": "bool"
+    },
+    "remoteVirtualNetworkId1": {
+      "type": "string"
+
+    },
+    "remoteVirtualnetworkAddressPrefix1": {
+      "type": "string"
+    },
+    "remoteVirtualNetworkId2": {
+      "type": "string"
+
+    },
+    "remoteVirtualnetworkAddressPrefix2": {
+      "type": "string"
+    },
+    "remoteVirtualNetworkId3": {
+      "type": "string"
+
+    },
+    "remoteVirtualnetworkAddressPrefix3": {
+      "type": "string"
+    },
+    "remoteVirtualnetworkAddressPrefix4": {
+      "type": "string"
+    },
+    "remoteVirtualNetworkId4": {
+      "type": "string"
+
+    },
+    "environment": {
+      "type": "string",
+      "metadata": {
+        "description": "Environment Tag"
+      }
+    },
+    "nmsc": {
+      "type": "string",
+      "metadata": {
+        "description": "NMSC Tag"
+      }
+    }
+
+  },
+
+  "variables": { },
+  "resources": [
+    {
+      "apiVersion": "2017-10-01",
+      "location": "[parameters('location')]",
+      "name": "[parameters('VirtualNetworkName1')]",
+      "tags": {
+        "Environment": "[parameters('environment')]",
+        "NMSC": "[parameters('NMSC')]"
+      },
+      "properties": {
+        "addressSpace": {
+          "addressprefixes": [
+            "[parameters('AddressPrefix1')]"
+          ]
+        },
+        "dhcpOptions": {
+          "dnsServers": "[parameters('dnsServers')]"
+        },
+        "enableDdosProtection": false,
+        "enableVmProtection": false,
+        "subnets": [
+          {
+            "name": "[parameters('subnetName1')]",
+            "properties": {
+              "addressprefix": "[parameters('subnetPrefix1')]"
+            }
+          },
+          {
+            "name": "[parameters('subnetName2')]",
+            "properties": {
+              "addressprefix": "[parameters('subnetPrefix2')]"
+            }
+          },
+          {
+            "name": "[parameters('subnetName3')]",
+            "properties": {
+              "addressprefix": "[parameters('subnetPrefix3')]"
+            }
+          },
+          {
+            "name": "[parameters('subnetName4')]",
+            "properties": {
+              "addressprefix": "[parameters('subnetPrefix4')]"
+            }
+          }
+        ],
+        "virtualNetworkPeerings": [
+          {
+            "name": "[parameters('peeringname1')]",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[parameters('remoteVirtualNetworkId1')]"
+              },
+              "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+              "allowForwardedTraffic": "[parameters('allowForwardedTrafficFalse')]",
+              "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+              "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "[parameters('remoteVirtualnetworkAddressPrefix1')]"
+                ]
+              }
+            }
+          },
+          {
+            "name": "[parameters('peeringname2')]",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[parameters('remoteVirtualNetworkId2')]"
+              },
+              "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+              "allowForwardedTraffic": "[parameters('allowForwardedTrafficFalse')]",
+              "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+              "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "[parameters('remoteVirtualnetworkAddressPrefix2')]"
+                ]
+              }
+            }
+
+          },
+          {
+            "name": "[parameters('peeringname3')]",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[parameters('remoteVirtualNetworkId3')]"
+              },
+              "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+              "allowForwardedTraffic": "[parameters('allowForwardedTrafficTrue')]",
+              "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+              "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "[parameters('remoteVirtualnetworkAddressPrefix3')]"
+                ]
+              }
+            }
+
+          },
+          {
+            "name": "[parameters('peeringname4')]",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[parameters('remoteVirtualNetworkId4')]"
+              },
+              "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+              "allowForwardedTraffic": "[parameters('allowForwardedTrafficTrue')]",
+              "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+              "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+              "remoteAddressSpace": {
+                "addressPrefixes": [
+                  "[parameters('remoteVirtualnetworkAddressPrefix4')]"
+                ]
+              }
+            }
+
+          }
+
+        ]
+      },
+      "type": "Microsoft.Network/virtualNetworks"
+    },
+    {
+      "apiVersion": "2018-02-01",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "comments": "",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetworkName1'))]"
+      ],
+      "name": "[concat(parameters('VirtualNetworkName1'), '/', parameters('peeringname1'))]",
+      "properties": {
+
+        "remoteVirtualNetwork": {
+          "id": "[parameters('remoteVirtualNetworkId1')]"
+        },
+        "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+        "allowForwardedTraffic": "[parameters('allowForwardedTrafficFalse')]",
+        "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+        "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "[parameters('remoteVirtualnetworkAddressPrefix1')]"
+          ]
+        }
+      },
+      "scale": null
+
+    },
+    {
+      "apiVersion": "2018-02-01",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "comments": "",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetworkName1'))]"
+      ],
+      "name": "[concat(parameters('VirtualNetworkName1'), '/', parameters('peeringname2'))]",
+      "properties": {
+
+        "remoteVirtualNetwork": {
+          "id": "[parameters('remoteVirtualNetworkId2')]"
+        },
+        "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+        "allowForwardedTraffic": "[parameters('allowForwardedTrafficFalse')]",
+        "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+        "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "[parameters('remoteVirtualnetworkAddressPrefix2')]"
+          ]
+        }
+      },
+      "scale": null
+    },
+    {
+      "apiVersion": "2018-02-01",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "comments": "",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetworkName1'))]"
+      ],
+      "name": "[concat(parameters('VirtualNetworkName1'), '/', parameters('peeringname3'))]",
+      "properties": {
+
+        "remoteVirtualNetwork": {
+          "id": "[parameters('remoteVirtualNetworkId3')]"
+        },
+        "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+        "allowForwardedTraffic": "[parameters('allowForwardedTrafficTrue')]",
+        "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+        "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "[parameters('remoteVirtualnetworkAddressPrefix3')]"
+          ]
+        }
+      },
+      "scale": null
+    },
+    {
+      "apiVersion": "2018-02-01",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "comments": "",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetworkName1'))]"
+      ],
+      "name": "[concat(parameters('VirtualNetworkName1'), '/', parameters('peeringname4'))]",
+      "properties": {
+
+        "remoteVirtualNetwork": {
+          "id": "[parameters('remoteVirtualNetworkId4')]"
+        },
+        "allowVirtualNetworkAccess": "[parameters('allowVirtualNetworkAccessTrue')]",
+        "allowForwardedTraffic": "[parameters('allowForwardedTrafficTrue')]",
+        "allowGatewayTransit": "[parameters('allowGatewayTransitFalse')]",
+        "useRemoteGateways": "[parameters('useRemoteGatewaysFalse')]",
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "[parameters('remoteVirtualnetworkAddressPrefix4')]"
+          ]
+        }
+      },
+      "scale": null
+    }
+  ]
+}

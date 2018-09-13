@@ -2,14 +2,24 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "templateBaseURL":{
+        "templateBaseURL1":{
             "type": "string",
             "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/template-TDG-VM-MNG1-U.json"
            
         },
-        "parameterBaseURL":{
+        "parameterBaseURL1":{
             "type": "string",
             "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/parameters-TDG-VM-MNG1-U.json"
+           
+        },
+        "templateBaseURL2":{
+            "type": "string",
+            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/template-TDG-VNET-ACC.json"
+           
+        },
+        "parameterBaseURL2":{
+            "type": "string",
+            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/parameters-TDG-VNET-ACC.json"
            
         }
         
@@ -25,17 +35,33 @@
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
-                  "uri": "[parameters('templateBaseURL')]"  
+                  "uri": "[parameters('templateBaseURL1')]"  
                 },
                 "parametersLink":{
-                    "uri": "[parameters('parameterBaseURL')]"
+                    "uri": "[parameters('parameterBaseURL1')]"
                 }
 
+            },
+            "dependsOn": [
+                "networkTemplate"
+            ]
+        },
+
+        {
+            "apiVersion": "2017-05-10",
+            "name": "Networktemplate",
+            "type": "Microsoft.Resources/deployments",
+            "comments": "depending on network resource",
+            "properties":{
+                "mode":"Incremental",
+                "templateLink":{
+                    "uri": "[parameters('templateBaseUrl2')]"
+                },
+                "parametersLink":{
+                    "uri": "[parameters('parameterBaseURL2')]"
+                }
             }
-
             
-
-
 
         }
 
