@@ -4,12 +4,12 @@
     "parameters": {
         "templateBaseURL":{
             "type": "string",
-            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/toshikovstspoc/template-TDG-VM-MNG1-U.json"
+            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/template-TDG-VM-MNG1-U.json"
            
         },
         "parameterBaseURL":{
             "type": "string",
-            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/toshikovstspoc/parameters-TDG-VM-MNG1-U.json"
+            "defaultValue": "https://toshikovstspoc.blob.core.windows.net/toshikovstspoc/parameters-TDG-VM-MNG1-U.json"
            
         }
         
