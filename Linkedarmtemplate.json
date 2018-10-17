@@ -31,7 +31,7 @@
             "apiVersion": "2017-05-10",
             "name":"linkedtemplate",
             "type": "Microsoft.Resources/deployments",
-            "comments": "test deploy",
+            "comments": "test deploy 1",
             "properties":{
                 "mode":"Incremental",
                 "templateLink":{
