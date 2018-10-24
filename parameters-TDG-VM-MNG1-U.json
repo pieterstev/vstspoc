@@ -29,7 +29,7 @@
           "value": "linkedARMblogRG"
         },
         "rgNameNetwork": {
-          "value": "TDG-RG-Network-ACC"
+          "value": "linkedARMblogRG"
         },
         "subnetName": {
             "value": "TDG-Subnet-Mng-ACC"
