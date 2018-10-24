@@ -26,7 +26,7 @@
           "value": "TDG-VNET-ACC"
         },
         "rgNameVM": {
-          "value": "TDG-RG-IaaS-Mng-ACC"
+          "value": "linkedARMblogRG"
         },
         "rgNameNetwork": {
           "value": "TDG-RG-Network-ACC"
